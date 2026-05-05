@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "Loja.Testes.Integracao": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "https://localhost:55518;http://localhost:55519"
+    }
+  }
+}
