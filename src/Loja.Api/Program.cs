@@ -1,7 +1,7 @@
 using Loja.Api.Endpoints.Catalogo;
 using Loja.Api.Endpoints.Checkout;
 using Loja.Api.Endpoints.Pedidos;
-using Loja.Dominio.Comum;
+using Loja.Dominio.Compartilhado;
 using Loja.Infraestrutura;
 using Loja.Infraestrutura.Persistencia;
 using Microsoft.EntityFrameworkCore;
@@ -55,8 +55,7 @@ app.UseExceptionHandler(handler =>
     });
 });
 
-// Cria o schema do EF Core na subida (somente para dev/aula).
-// Marten cuida do próprio schema (ver AutoCreateSchemaObjects em InjecaoDependencia).
+
 using (var scope = app.Services.CreateScope())
 {
     var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
@@ -75,5 +74,4 @@ app.MapGet("/", () => Results.Redirect("/swagger"));
 
 app.Run();
 
-// Necessário para os testes de integração (WebApplicationFactory<Program>).
 public partial class Program { }

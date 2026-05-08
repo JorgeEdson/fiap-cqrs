@@ -1,5 +1,5 @@
-using Loja.Aplicacao.Pedidos.Comandos;
-using Loja.Aplicacao.Pedidos.ModelosLeitura;
+using Loja.Aplicacao.Handlers.Pedidos;
+using Loja.Aplicacao.Handlers.Pedidos.Consultas.ModelosLeitura;
 using Marten;
 using MediatR;
 

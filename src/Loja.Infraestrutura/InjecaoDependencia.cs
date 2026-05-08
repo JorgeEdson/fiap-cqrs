@@ -1,8 +1,8 @@
 using FluentValidation;
-using Loja.Aplicacao.Catalogo;
-using Loja.Aplicacao.Pedidos;
-using Loja.Aplicacao.Pedidos.Projecoes;
-using Loja.Aplicacao.Pedidos.Versionamento;
+using Loja.Aplicacao.Handlers.Catalogo.Interfaces;
+using Loja.Aplicacao.Handlers.Pedidos.Consultas.Projecoes;
+using Loja.Aplicacao.Handlers.Pedidos.Consultas.Versionamento;
+using Loja.Aplicacao.Handlers.Pedidos.Interfaces;
 using Loja.Dominio.Pedidos.Eventos.V1;
 using Loja.Dominio.Pedidos.Eventos.V2;
 using Loja.Infraestrutura.Catalogo;
@@ -24,10 +24,7 @@ namespace Loja.Infraestrutura;
 
 public static class InjecaoDependencia
 {
-    /// <summary>
-    /// Registra toda a infraestrutura: EF Core (Aula 1), Marten + projeções (Aulas 3-5),
-    /// Wolverine + Saga (Aula 6) e MediatR/FluentValidation transversais.
-    /// </summary>
+    
     public static IServiceCollection AdicionarInfraestrutura(
         this IServiceCollection services,
         IConfiguration configuration)
@@ -80,10 +77,7 @@ public static class InjecaoDependencia
         return services;
     }
 
-    /// <summary>
-    /// Configura o Wolverine para hospedar a Saga (AULA 6) e os handlers
-    /// dos serviços simulados (Pagamento / Estoque / Envio).
-    /// </summary>
+    
     public static IHostBuilder AdicionarWolverine(this IHostBuilder host)
     {
         return host.UseWolverine(opts =>

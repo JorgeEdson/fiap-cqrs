@@ -1,4 +1,4 @@
-using Loja.Dominio.Comum;
+using Loja.Dominio.Compartilhado;
 using Loja.Dominio.Pedidos.Eventos.V1;
 using Loja.Dominio.Pedidos.Eventos.V2;
 

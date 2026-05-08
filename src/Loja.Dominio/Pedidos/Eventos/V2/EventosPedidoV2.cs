@@ -1,4 +1,4 @@
-using Loja.Dominio.Comum;
+using Loja.Dominio.Compartilhado;
 
 namespace Loja.Dominio.Pedidos.Eventos.V2;
 

@@ -1,4 +1,4 @@
-using Loja.Aplicacao.Pedidos.Comandos;
+using Loja.Aplicacao.Handlers.Pedidos;
 using Loja.Aplicacao.Sagas;
 using Loja.Dominio.Pedidos.Snapshots;
 using Loja.Dominio.Sagas.ProcessamentoPedido;

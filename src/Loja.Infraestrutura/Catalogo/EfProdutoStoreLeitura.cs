@@ -1,5 +1,5 @@
-using Loja.Aplicacao.Catalogo;
-using Loja.Aplicacao.Catalogo.Consultas;
+using Loja.Aplicacao.Handlers.Catalogo.Consultas;
+using Loja.Aplicacao.Handlers.Catalogo.Interfaces;
 using Loja.Infraestrutura.Persistencia;
 using Microsoft.EntityFrameworkCore;
 

@@ -1,4 +1,4 @@
-using Loja.Aplicacao.Catalogo;
+using Loja.Aplicacao.Handlers.Catalogo.Interfaces;
 using Loja.Dominio.Catalogo;
 using Loja.Infraestrutura.Persistencia;
 using Microsoft.EntityFrameworkCore;

@@ -1,5 +1,4 @@
-using Loja.Aplicacao.Catalogo.Comandos;
-using Loja.Aplicacao.Catalogo.Consultas;
+using Loja.Aplicacao.Handlers.Catalogo;
 using MediatR;
 
 namespace Loja.Api.Endpoints.Catalogo;

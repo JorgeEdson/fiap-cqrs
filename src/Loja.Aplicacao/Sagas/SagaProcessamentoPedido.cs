@@ -4,31 +4,10 @@ using Wolverine;
 
 namespace Loja.Aplicacao.Sagas;
 
-/// <summary>
-/// AULA 6 — Process Manager (Saga) que coordena o fluxo "Pedido confirmado → Entregue".
-///
-/// Estilo: ORQUESTRAÇÃO. A saga decide a próxima etapa em resposta a cada evento.
-///
-/// Fluxo do happy path:
-///   PedidoConfirmado
-///     → ReservarEstoque        ──> EstoqueReservado
-///     → CobrarPagamento        ──> PagamentoConcluido
-///     → AgendarEmbalagem       ──> EmbalagemAgendada
-///     → Concluído
-///
-/// Falhas → executa transações COMPENSATÓRIAS (LiberarEstoque, etc.).
-///
-/// OBS: os métodos Start/Handle DEVEM permanecer em inglês — convenção do Wolverine.
-/// </summary>
 public sealed class SagaProcessamentoPedido : Saga
 {
     public EstadoProcessamentoPedido State { get; set; } = new();
-
-    /// <summary>
-    /// Inicia a saga reagindo ao evento de domínio que vem do agregado Pedido.
-    /// Aqui usamos uma mensagem de integração simples — em ambiente real,
-    /// seria publicada pelo Marten Outbox quando PedidoConfirmado for persistido.
-    /// </summary>
+ 
     public static (SagaProcessamentoPedido, ReservarEstoque) Start(IniciarProcessamentoPedido gatilho)
     {
         var saga = new SagaProcessamentoPedido
@@ -99,10 +78,7 @@ public sealed class SagaProcessamentoPedido : Saga
         MarkCompleted();
         return new LiberarEstoque(State.PedidoId, State.Id);
     }
-
-    /// <summary>
-    /// AULA 6 — Timeouts: se uma etapa não responde, dispara compensação.
-    /// </summary>
+    
     public LiberarEstoque? Handle(TimeoutSaga msg, ILogger<SagaProcessamentoPedido> log)
     {
         if (State.Etapa is EtapaProcessamentoPedido.Concluido or EtapaProcessamentoPedido.Falhou)
@@ -112,13 +88,9 @@ public sealed class SagaProcessamentoPedido : Saga
         State.MotivoFalha = $"Timeout em {msg.Etapa}";
         MarkCompleted();
         return new LiberarEstoque(State.PedidoId, State.Id);
-    }
-}
+    }}
 
-/// <summary>
-/// Mensagem de integração que dispara a saga.
-/// Em produção, seria publicada via Outbox quando PedidoConfirmado é persistido.
-/// </summary>
+
 public sealed record IniciarProcessamentoPedido(
     Guid PedidoId,
     Guid ClienteId,

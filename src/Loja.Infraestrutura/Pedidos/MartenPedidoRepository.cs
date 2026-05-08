@@ -1,5 +1,5 @@
-using Loja.Aplicacao.Pedidos;
-using Loja.Dominio.Comum;
+using Loja.Aplicacao.Handlers.Pedidos.Interfaces;
+using Loja.Dominio.Compartilhado;
 using Loja.Dominio.Pedidos;
 using Marten;
 

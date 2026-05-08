@@ -1,7 +1,7 @@
 using System.Net;
 using System.Net.Http.Json;
 using FluentAssertions;
-using Loja.Aplicacao.Pedidos.ModelosLeitura;
+using Loja.Aplicacao.Handlers.Pedidos.Consultas.ModelosLeitura;
 using Loja.Dominio.Pedidos;
 using Loja.Testes.Integracao.Infraestrutura;
 using Xunit;
