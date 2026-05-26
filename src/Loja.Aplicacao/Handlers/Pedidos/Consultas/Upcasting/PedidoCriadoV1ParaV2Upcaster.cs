@@ -1,7 +1,7 @@
 using Loja.Dominio.Pedidos.Eventos.V1;
 using Loja.Dominio.Pedidos.Eventos.V2;
 
-namespace Loja.Aplicacao.Handlers.Pedidos.Consultas.Versionamento;
+namespace Loja.Aplicacao.Handlers.Pedidos.Consultas.Upcasting;
 
 public static class PedidoCriadoV1ParaV2Upcaster
 {

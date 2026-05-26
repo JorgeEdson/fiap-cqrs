@@ -1,7 +1,7 @@
 using FluentValidation;
 using Loja.Aplicacao.Handlers.Catalogo.Interfaces;
 using Loja.Aplicacao.Handlers.Pedidos.Consultas.Projecoes;
-using Loja.Aplicacao.Handlers.Pedidos.Consultas.Versionamento;
+using Loja.Aplicacao.Handlers.Pedidos.Consultas.Upcasting;
 using Loja.Aplicacao.Handlers.Pedidos.Interfaces;
 using Loja.Dominio.Pedidos.Eventos.V1;
 using Loja.Dominio.Pedidos.Eventos.V2;

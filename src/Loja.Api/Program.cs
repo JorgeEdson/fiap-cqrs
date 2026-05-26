@@ -19,7 +19,7 @@ builder.Host.UseSerilog((ctx, lc) => lc
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(opt =>
 {
-    opt.SwaggerDoc("v1", new() { Title = "Loja CQRS+ES (FIAP)", Version = "v1" });
+    opt.SwaggerDoc("v1", new() { Title = "Loja CQRS+EVENT_SOURCING (FIAP)", Version = "v1" });
 });
 
 // Toda a infra (EF + Marten + Wolverine + MediatR) está em Loja.Infraestrutura.
@@ -27,7 +27,7 @@ builder.Services.AdicionarInfraestrutura(builder.Configuration);
 builder.Host.AdicionarWolverine();
 
 // --------------------------------------------------------------------
-// AULA 7 — Tradução padronizada das RegraNegocioException → 422.
+// AULA 7 — Tradução padronizada das RegraNegocioException → 422
 // --------------------------------------------------------------------
 builder.Services.AddProblemDetails();
 
